@@ -152,8 +152,8 @@ export default {
     // --- Tailwind CSS Plugins ---
     plugins: [
         require("tailwindcss-animate"), // Essential for the keyframes/animations defined above
-        require("tailwind-scrollbar"), // Added based on scrollbar styling in index.css
-        require('@tailwindcss/forms'), // Added based on user prompt mentioning forms
+        // require("tailwind-scrollbar"), // Added based on scrollbar styling in index.css
+        // require('@tailwindcss/forms'), // Added based on user prompt mentioning forms
         require('@tailwindcss/typography'), // Added based on user prompt implying styled text content
     ],
 } satisfies Config; 

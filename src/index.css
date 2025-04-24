@@ -3,182 +3,181 @@
  * -----------------------------------------------------------
  * Generated based on Iron Man Game Store description.
  */
- @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Inter:wght@400;700&family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
- 
- @layer base {
-   /**
-    * ========================================================================
-    * Theme Variables (CSS Custom Properties)
-    * ========================================================================
-    */
-   :root {
-     /* Colors (Light Mode - HSL) */
-     --background: 210 20% 98%;
-     --foreground: 210 10% 15%;
- 
-     --card: 0 0% 100%;
-     --card-foreground: 210 10% 15%;
- 
-     --popover: 0 0% 100%;
-     --popover-foreground: 210 10% 15%;
- 
-     --primary: 0 75% 50%;
-     --primary-foreground: 0 0% 100%;
- 
-     --secondary: 210 10% 60%;
-     --secondary-foreground: 210 10% 20%;
- 
-     --muted: 210 30% 95%;
-     --muted-foreground: 210 10% 45%;
- 
-     --accent: 45 80% 55%;
-     --accent-foreground: 45 10% 15%;
- 
-     --destructive: 0 84% 60%;
-     --destructive-foreground: 0 0% 100%;
- 
-     --success: 140 70% 45%;
-     --success-foreground: 0 0% 100%;
- 
-     --warning: 38 92% 50%;
-     --warning-foreground: 38 10% 15%;
- 
-     --border: 210 20% 88%;
-     --input: 210 20% 92%;
-     --ring: 0 75% 50%;
- 
-     /* Layout & Typography */
-     --radius: 0.75rem;
-     --font-family-base: "Inter", "system-ui", sans-serif;
-     --font-family-heading: "Exo 2", "Inter", sans-serif;
-     --font-family-mono: "Fira Code", monospace;
-     --text-scale: 1;
-     --spacing-scale: 1;
-     --transition-duration-base: 150ms;
-   }
- 
-   /**
-    * ========================================================================
-    * Dark Mode Theme Variables
-    * ========================================================================
-    */
-   .dark {
-     --background: 220 15% 10%;
-     --foreground: 210 20% 95%;
- 
-     --card: 220 15% 15%;
-     --card-foreground: 210 20% 95%;
- 
-     --popover: 220 15% 12%;
-     --popover-foreground: 210 20% 95%;
- 
-     --primary: 0 85% 60%;
-     --primary-foreground: 0 0% 98%;
- 
-     --secondary: 215 15% 35%;
-     --secondary-foreground: 210 20% 90%;
- 
-     --muted: 215 15% 25%;
-     --muted-foreground: 215 15% 65%;
- 
-     --accent: 45 90% 60%;
-     --accent-foreground: 45 10% 15%;
- 
-     --destructive: 0 90% 65%;
-     --destructive-foreground: 0 0% 100%;
- 
-     --success: 140 75% 50%;
-     --success-foreground: 0 0% 10%;
- 
-     --warning: 38 95% 55%;
-     --warning-foreground: 38 10% 10%;
- 
-     --border: 215 15% 28%;
-     --input: 215 15% 32%;
-     --ring: 45 90% 60%;
-   }
- 
-   /* Base Element Styling */
-   * { border-color: hsl(var(--border)); }
-   html { scroll-behavior: smooth; }
-   body {
-     background-color: hsl(var(--background));
-     color: hsl(var(--foreground));
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-     font-family: var(--font-family-base);
-     font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss02", "cv01", "cv02", "cv03", "cv04", "cv11";
-   }
-   h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-heading);
-   color: hsl(var(--foreground));}
-   h1 { font-size: calc(2.25rem * var(--text-scale, 1)); }
-   h2 { font-size: calc(1.875rem * var(--text-scale, 1)); }
-   h3 { font-size: calc(1.5rem * var(--text-scale, 1)); }
-   h4 { font-size: calc(1.25rem * var(--text-scale, 1)); }
-   p, span, button, a, li, input, textarea, label, div { font-size: calc(1rem * var(--text-scale, 1)); }
-   .text-xs { font-size: calc(0.75rem * var(--text-scale, 1)); }
-   .text-sm { font-size: calc(0.875rem * var(--text-scale, 1)); }
-   .text-lg { font-size: calc(1.125rem * var(--text-scale, 1)); }
-   .text-xl { font-size: calc(1.25rem * var(--text-scale, 1)); }
-   .text-2xl { font-size: calc(1.5rem * var(--text-scale, 1)); }
- }
- 
- @layer utilities {
-   /**
-    * ========================================================================
-    * General Utilities
-    * ========================================================================
-    */
-   .text-balance { text-wrap: balance; }
-   .text-pretty { text-wrap: pretty; }
-   .center {  display: flex; align-items: center; justify-content: center; }
-   .text-gradient-primary { background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     background-clip: text;
-     -webkit-text-fill-color: transparent; }
-   ::-webkit-scrollbar { width: 8px; height: 8px; }
-   ::-webkit-scrollbar-track { background: transparent; }
-   ::-webkit-scrollbar-thumb {
-     background-color: hsl(var(--muted-foreground) / 0.5);
-     border-radius: var(--radius); border: 2px solid transparent; background-clip: padding-box;
-   }
-   ::-webkit-scrollbar-thumb:hover { background-color: hsl(var(--muted-foreground) / 0.7); }
-   .no-scrollbar::-webkit-scrollbar { display: none; }
-   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-   .glass-effect { backdrop-filter: blur(8px) saturate(180%);
-      background-color: hsl(var(--card) / 0.5);
-      border: 1px solid hsl(var(--border) / 0.2);
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
- }
- 
- @layer components {
-   /**
-    * ========================================================================
-    * Common Component Base Styles & Animations
-    * ========================================================================
-    */
-   .card-hover-basic { transition: transform var(--transition-duration-base) ease-in-out, box-shadow var(--transition-duration-base) ease-in-out;
-      box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.1), 0 1px 2px -1px hsl(var(--foreground) / 0.1); }
-   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-   .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-   .animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-   @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-   .animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
- 
-   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
-   .animate-pulse-gentle { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
- 
-   .stagger-item { opacity:0; animation: fadeIn 0.6s ease-out forwards; }
-   .stagger-container > .stagger-item:nth-child(1) { animation-delay: 0.05s; }
-   .stagger-container > .stagger-item:nth-child(2) { animation-delay: 0.1s; }
-   .stagger-container > .stagger-item:nth-child(3) { animation-delay: 0.15s; }
-   .stagger-container > .stagger-item:nth-child(4) { animation-delay: 0.2s; }
-   .stagger-container > .stagger-item:nth-child(5) { animation-delay: 0.25s; }
- }
- 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * ========================================================================
+   * Theme Variables (CSS Custom Properties)
+   * ========================================================================
+   */
+  :root {
+    /* Colors (Light Mode - HSL) */
+    --background: 210 20% 98%;
+    --foreground: 210 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 15%;
+
+    --primary: 0 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 10% 60%;
+    --secondary-foreground: 210 10% 20%;
+
+    --muted: 210 30% 95%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 45 80% 55%;
+    --accent-foreground: 45 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 140 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 10% 15%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 92%;
+    --ring: 0 75% 50%;
+
+    /* Layout & Typography */
+    --radius: 0.75rem;
+    --font-family-base: "Inter", "system-ui", sans-serif;
+    --font-family-heading: "Exo 2", "Inter", sans-serif;
+    --font-family-mono: "Fira Code", monospace;
+    --text-scale: 1;
+    --spacing-scale: 1;
+    --transition-duration-base: 150ms;
+  }
+
+  /**
+   * ========================================================================
+   * Dark Mode Theme Variables
+   * ========================================================================
+   */
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 15% 15%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 0 85% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 215 15% 35%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 215 15% 25%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 45 90% 60%;
+    --accent-foreground: 45 10% 15%;
+
+    --destructive: 0 90% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 140 75% 50%;
+    --success-foreground: 0 0% 10%;
+
+    --warning: 38 95% 55%;
+    --warning-foreground: 38 10% 10%;
+
+    --border: 215 15% 28%;
+    --input: 215 15% 32%;
+    --ring: 45 90% 60%;
+  }
+
+  /* Base Element Styling */
+  * { border-color: hsl(var(--border)); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-family-base);
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss02", "cv01", "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-heading);
+  color: hsl(var(--foreground));}
+  h1 { font-size: calc(2.25rem * var(--text-scale, 1)); }
+  h2 { font-size: calc(1.875rem * var(--text-scale, 1)); }
+  h3 { font-size: calc(1.5rem * var(--text-scale, 1)); }
+  h4 { font-size: calc(1.25rem * var(--text-scale, 1)); }
+  p, span, button, a, li, input, textarea, label, div { font-size: calc(1rem * var(--text-scale, 1)); }
+  .text-xs { font-size: calc(0.75rem * var(--text-scale, 1)); }
+  .text-sm { font-size: calc(0.875rem * var(--text-scale, 1)); }
+  .text-lg { font-size: calc(1.125rem * var(--text-scale, 1)); }
+  .text-xl { font-size: calc(1.25rem * var(--text-scale, 1)); }
+  .text-2xl { font-size: calc(1.5rem * var(--text-scale, 1)); }
+}
+
+@layer utilities {
+  /**
+   * ========================================================================
+   * General Utilities
+   * ========================================================================
+   */
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .center {  display: flex; align-items: center; justify-content: center; }
+  .text-gradient-primary { background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+    border-radius: var(--radius); border: 2px solid transparent; background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover { background-color: hsl(var(--muted-foreground) / 0.7); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .glass-effect { backdrop-filter: blur(8px) saturate(180%);
+     background-color: hsl(var(--card) / 0.5);
+     border: 1px solid hsl(var(--border) / 0.2);
+     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+}
+
+@layer components {
+  /**
+   * ========================================================================
+   * Common Component Base Styles & Animations
+   * ========================================================================
+   */
+  .card-hover-basic { transition: transform var(--transition-duration-base) ease-in-out, box-shadow var(--transition-duration-base) ease-in-out;
+     box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.1), 0 1px 2px -1px hsl(var(--foreground) / 0.1); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  .animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+  .animate-pulse-gentle { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+  .stagger-item { opacity:0; animation: fadeIn 0.6s ease-out forwards; }
+  .stagger-container > .stagger-item:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-container > .stagger-item:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-container > .stagger-item:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-container > .stagger-item:nth-child(4) { animation-delay: 0.2s; }
+  .stagger-container > .stagger-item:nth-child(5) { animation-delay: 0.25s; }
+}
