@@ -6,38 +6,38 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import CartCheckoutPage from "./pages/CartCheckoutPage";
-import GameDetailPage from "./pages/GameDetailPage";
-import GamesCatalogPage from "./pages/GamesCatalogPage";
-import Homepage from "./pages/Homepage";
-import ShopInformationBookingPage from "./pages/ShopInformationBookingPage";
-import NotFound from "./pages/NotFound";
+import LoginPage from "./pages/LoginPage";
+import MainTradingDashboardPage from "./pages/MainTradingDashboardPage";
+import MarketOverviewPage from "./pages/MarketOverviewPage";
+import StockDetailPage from "./pages/StockDetailPage";
+import UserProfilePage from "./pages/UserProfilePage";
+// import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+<QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
         <Routes>
 
 
-          <Route path="/" element={<Homepage />} />
-          <Route path="/games" element={<GamesCatalogPage />} />
-          <Route path="/games/:gameId" element={<GameDetailPage />} />
-          <Route path="/cart" element={<CartCheckoutPage />} />
-          <Route path="/shop" element={<ShopInformationBookingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<MainTradingDashboardPage />} />
+          <Route path="/stock/:ticker" element={<StockDetailPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="/market-overview" element={<MarketOverviewPage />} />
           {/* catch-all */}
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
 
 
         </Routes>
-      </BrowserRouter>
+    </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+</QueryClientProvider>
 );
 
 export default App;

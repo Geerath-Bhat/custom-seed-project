@@ -1,70 +1,83 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ShoppingCart, User, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Assuming shadcn/ui button path
-import { cn } from '@/lib/utils'; // Assuming utility function path
+import { Menu, User, Settings, Sun, Moon } from 'lucide-react';
+import { cn } from '@/lib/utils'; // Assuming exists for clsx/tailwind-merge
+import { Button } from '@/components/ui/button'; // Assuming shadcn/ui Button
+// import { useTheme } from 'next-themes'; // Uncomment if theme toggle implemented
 
 interface HeaderProps {
-  toggleSidebar?: () => void; // Optional prop to toggle a sidebar
-  showSidebarToggle?: boolean; // Explicitly control if the toggle should be shown
+  toggleSidebar?: () => void; // Optional: Only needed if a collapsible sidebar exists
+  hasCollapsibleSidebar?: boolean; // Flag to conditionally render menu toggle
 }
 
-const Header: React.FC<HeaderProps> = ({ toggleSidebar, showSidebarToggle = false }) => {
-  const appName = 'vite_react_shadcn_ts'; // From package.json
+const Header: React.FC<HeaderProps> = ({ toggleSidebar, hasCollapsibleSidebar }) => {
+  // const { theme, setTheme } = useTheme(); // Uncomment for theme toggle
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center space-x-4">
-          {showSidebarToggle && toggleSidebar && (
+    <header className={cn(
+      'sticky top-0 z-50 w-full',
+      'border-b border-border',
+      'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+    )}>
+      <div className="container flex h-14 max-w-screen-2xl items-center px-4">
+        <div className="mr-4 flex items-center">
+          {/* Conditionally render menu toggle button for collapsible sidebar */}
+          {hasCollapsibleSidebar && (
             <Button
               variant="ghost"
               size="icon"
+              className="mr-2 md:hidden" // Hide on medium screens and up where sidebar might become static
               onClick={toggleSidebar}
-              className="md:hidden" // Typically shown only on mobile for LSB/RSB
-              aria-label="Toggle sidebar"
+              aria-label="Toggle Sidebar"
             >
               <Menu className="h-5 w-5" />
             </Button>
           )}
-          <Link to="/" className="flex items-center space-x-2">
-             <Sparkles className="h-6 w-6 text-primary" />
-             <span className="font-bold text-lg font-heading text-foreground hover:text-primary transition-colors">
-                {appName}
-             </span>
+          <Link to="/dashboard" className="mr-6 flex items-center space-x-2">
+            {/* Placeholder Logo */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-primary">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span className="font-bold inline-block text-foreground">Ascendion</span>
           </Link>
         </div>
 
+        {/* Placeholder Navigation (can be expanded) */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link
-            to="/games"
-            className="text-foreground/70 transition-colors hover:text-foreground"
+            to="/dashboard"
+            className="transition-colors hover:text-foreground/80 text-foreground/60"
           >
-            Games
+            Dashboard
           </Link>
           <Link
-            to="/shop"
-            className="text-foreground/70 transition-colors hover:text-foreground"
+            to="/market-overview"
+            className="transition-colors hover:text-foreground/80 text-foreground/60"
           >
-            Shop Info
+            Market
           </Link>
-          {/* Add other main navigation links here */}
+          {/* Add more links as needed */}
         </nav>
 
-        <div className="flex items-center space-x-3">
-          <Button variant="ghost" size="icon" aria-label="Shopping Cart">
-             <Link to="/cart">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Shopping Cart</span>
-             </Link>
+        <div className="flex flex-1 items-center justify-end space-x-2">
+          {/* Placeholder User Actions */}
+          {/* <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            aria-label="Toggle Theme"
+          >
+            <Sun className="h-5 w-5 scale-100 dark:scale-0 transition-all" />
+            <Moon className="h-5 w-5 absolute scale-0 dark:scale-100 transition-all" />
+          </Button> */}
+           <Button variant="ghost" size="icon" aria-label="Settings Placeholder">
+            <Settings className="h-5 w-5 text-foreground/60 hover:text-foreground/80 transition-colors" />
           </Button>
-          {/* Placeholder for User Profile/Auth */}
-          <Button variant="ghost" size="icon" aria-label="User Profile">
-            <User className="h-5 w-5" />
-            <span className="sr-only">User Profile</span>
-          </Button>
-          {/* Placeholder for Theme Toggle - requires implementation with next-themes */}
-          {/* <ThemeToggle /> */}
+          <Link to="/profile">
+            <Button variant="ghost" size="icon" aria-label="User Profile">
+              <User className="h-5 w-5 text-foreground/60 hover:text-foreground/80 transition-colors" />
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

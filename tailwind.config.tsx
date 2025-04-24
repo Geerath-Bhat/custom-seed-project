@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"; 
+import type { Config } from "tailwindcss";
 
 export default {
     darkMode: ["class"], // Enables dark mode based on the 'class' attribute
@@ -7,10 +7,12 @@ export default {
         "./components/**/*.{ts,tsx}",
         "./app/**/*.{ts,tsx}", // Common path for Next.js App Router
         "./src/**/*.{ts,tsx}",  // Common path for source files
+        // Add any other paths where Tailwind classes might be used
     ],
-    prefix: "", // No prefix for utility classes
+    prefix: "", // No prefix for utility classes (e.g., 'text-primary' instead of 'tw-text-primary')
     theme: {
         // --- Container Settings ---
+        // Default container configuration for centering and padding
         container: {
             center: true,
             padding: '2rem', // Default padding for containers
@@ -20,18 +22,20 @@ export default {
         },
 
         // --- Theme Extensions ---
+        // Use 'extend' to add customizations without overwriting Tailwind defaults
         extend: {
             // --- START: Project-Specific Font Families ---
+            // Define custom font families based on CSS variables.
             fontFamily: {
-                sans: ['var(--font-family-base)', 'system-ui', 'sans-serif'], // Defined in index.css
-                heading: ['var(--font-family-heading)', 'sans-serif'], // Defined in index.css
-                mono: ['var(--font-family-mono)', 'monospace'], // Defined in index.css
+                sans: ['var(--font-family-base)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+                heading: ['var(--font-family-heading)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+                mono: ['var(--font-family-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
             },
             // --- END: Project-Specific Font Families ---
 
             // --- Color Palette ---
             colors: {
-                // Base colors (typically controlled by CSS variables for theming)
+                // Base colors (controlled by CSS variables for theming)
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))', // Used for focus rings, etc.
@@ -65,28 +69,28 @@ export default {
                     DEFAULT: 'hsl(var(--card))',
                     foreground: 'hsl(var(--card-foreground))'
                 },
-                // Sidebar specific colors (if using a distinct sidebar theme)
-                // sidebar: {
-                //  DEFAULT: 'hsl(var(--sidebar-background))',
-                //  foreground: 'hsl(var(--sidebar-foreground))',
-                //  primary: 'hsl(var(--sidebar-primary))',
-                //  'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-                //  accent: 'hsl(var(--sidebar-accent))',
-                //  'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-                //  border: 'hsl(var(--sidebar-border))',
-                //  ring: 'hsl(var(--sidebar-ring))'
-                // },
+                // Sidebar specific colors (enabled as CSS variables are present)
+                sidebar: {
+                 DEFAULT: 'hsl(var(--sidebar-background))',
+                 foreground: 'hsl(var(--sidebar-foreground))',
+                 primary: 'hsl(var(--sidebar-primary))',
+                 'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+                 accent: 'hsl(var(--sidebar-accent))',
+                 'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+                 border: 'hsl(var(--sidebar-border))',
+                 ring: 'hsl(var(--sidebar-ring))'
+                },
 
                 // --- START: Project-Specific Colors ---
                 // Added based on CSS variables found in index.css
                 success: {
-                  DEFAULT: 'hsl(var(--success))',
-                  foreground: 'hsl(var(--success-foreground))',
+                    DEFAULT: 'hsl(var(--success))',
+                    foreground: 'hsl(var(--success-foreground))'
                 },
                 warning: {
-                  DEFAULT: 'hsl(var(--warning))',
-                  foreground: 'hsl(var(--warning-foreground))',
-                },
+                    DEFAULT: 'hsl(var(--warning))',
+                    foreground: 'hsl(var(--warning-foreground))'
+                }
                 // --- END: Project-Specific Colors ---
             },
 
@@ -126,18 +130,19 @@ export default {
                 'accordion-up': 'accordion-up 0.2s ease-out',
 
                 // --- START: Project-Specific Animations ---
-                // Added based on animation utilities found in index.css
+                // Added based on animation classes found in index.css
                 'fade-in': 'fadeIn 0.5s ease-out forwards',
                 'slide-up': 'slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
                 'scale-in': 'scaleIn 0.3s ease-out forwards',
                 'pulse-gentle': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                // Note: Stagger uses 'fade-in' directly in CSS, no separate animation utility needed here.
                 // --- END: Project-Specific Animations ---
             },
 
             // --- START: Project-Specific Box Shadows ---
             boxShadow: {
-                 // Added based on .glass-effect in index.css (matches default shadow-md)
-                'glass': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+                // Added based on user prompt mention of 'distinct module cards'
+                'card': '0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)',
             },
             // --- END: Project-Specific Box Shadows ---
 
@@ -152,8 +157,8 @@ export default {
     // --- Tailwind CSS Plugins ---
     plugins: [
         require("tailwindcss-animate"), // Essential for the keyframes/animations defined above
-        // require("tailwind-scrollbar"), // Added based on scrollbar styling in index.css
-        require('@tailwindcss/forms'), // Added based on user prompt mentioning forms
-        require('@tailwindcss/typography'), // Added based on user prompt implying styled text content
+        require('@tailwindcss/forms'), // Needed for form styling mentioned in prompt
+        require('@tailwindcss/typography'), // Useful for potential content sections
+        require('tailwind-scrollbar'), // Added because scrollbar styles were found in index.css
     ],
-} satisfies Config; 
+} satisfies Config;

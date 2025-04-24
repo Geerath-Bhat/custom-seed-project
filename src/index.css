@@ -1,9 +1,8 @@
-/*
+/**
  * Generalized Tokens & Base Styles for React Tailwind Projects
  * -----------------------------------------------------------
- * Generated based on Iron Man Game Store description.
+ * Generated based on application description: Trading Dashboard.
  */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Inter:wght@400;700&family=Fira+Code&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,46 +15,56 @@
    * ========================================================================
    */
   :root {
-    /* Colors (Light Mode - HSL) */
-    --background: 210 20% 98%;
-    --foreground: 210 10% 15%;
+    /* Colors (Light Mode - HSL with PERCENT) */
+    --background: 210 40% 98%;
+    --foreground: 220 10% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 10% 15%;
+    --card-foreground: 220 10% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 15%;
+    --popover-foreground: 220 10% 10%;
 
-    --primary: 0 75% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 220 75% 55%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 10% 60%;
-    --secondary-foreground: 210 10% 20%;
+    --secondary: 215 25% 65%;
+    --secondary-foreground: 220 10% 25%;
 
-    --muted: 210 30% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 210 40% 95%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 45 80% 55%;
-    --accent-foreground: 45 10% 15%;
+    --accent: 220 85% 65%;
+    --accent-foreground: 220 10% 10%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --success: 140 70% 45%;
-    --success-foreground: 0 0% 100%;
+    --success: 130 65% 40%;
+    --success-foreground: 0 0% 98%;
 
-    --warning: 38 92% 50%;
-    --warning-foreground: 38 10% 15%;
+    --warning: 40 90% 55%;
+    --warning-foreground: 30 50% 15%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 92%;
-    --ring: 0 75% 50%;
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 220 75% 55%;
+
+    /* Sidebar Colors */
+    --sidebar-background: 210 35% 96%;
+    --sidebar-foreground: 220 10% 10%;
+    --sidebar-primary: 220 75% 55%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 85% 65%;
+    --sidebar-accent-foreground: 220 10% 10%;
+    --sidebar-border: 210 25% 85%;
+    --sidebar-ring: 220 75% 55%;
 
     /* Layout & Typography */
-    --radius: 0.75rem;
-    --font-family-base: "Inter", "system-ui", sans-serif;
-    --font-family-heading: "Exo 2", "Inter", sans-serif;
-    --font-family-mono: "Fira Code", monospace;
+    --radius: 0.5rem;
+    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --text-scale: 1;
     --spacing-scale: 1;
     --transition-duration-base: 150ms;
@@ -68,43 +77,56 @@
    */
   .dark {
     --background: 220 15% 10%;
-    --foreground: 210 20% 95%;
+    --foreground: 210 40% 96%;
 
-    --card: 220 15% 15%;
-    --card-foreground: 210 20% 95%;
+    --card: 220 15% 14%;
+    --card-foreground: 210 40% 96%;
 
     --popover: 220 15% 12%;
-    --popover-foreground: 210 20% 95%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary: 0 85% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 220 75% 65%;
+    --primary-foreground: 220 15% 10%;
 
-    --secondary: 215 15% 35%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 215 20% 30%;
+    --secondary-foreground: 210 40% 90%;
 
     --muted: 215 15% 25%;
     --muted-foreground: 215 15% 65%;
 
-    --accent: 45 90% 60%;
-    --accent-foreground: 45 10% 15%;
+    --accent: 220 85% 70%;
+    --accent-foreground: 220 15% 10%;
 
-    --destructive: 0 90% 65%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --success: 140 75% 50%;
-    --success-foreground: 0 0% 10%;
+    --success: 130 60% 50%;
+    --success-foreground: 130 100% 10%;
 
-    --warning: 38 95% 55%;
-    --warning-foreground: 38 10% 10%;
+    --warning: 40 85% 60%;
+    --warning-foreground: 40 100% 10%;
 
-    --border: 215 15% 28%;
-    --input: 215 15% 32%;
-    --ring: 45 90% 60%;
+    --border: 215 15% 25%;
+    --input: 215 15% 25%;
+    --ring: 220 85% 70%;
+
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 220 75% 65%;
+    --sidebar-primary-foreground: 220 15% 10%;
+    --sidebar-accent: 220 85% 70%;
+    --sidebar-accent-foreground: 220 15% 10%;
+    --sidebar-border: 215 15% 20%;
+    --sidebar-ring: 220 85% 70%;
   }
 
   /* Base Element Styling */
-  * { border-color: hsl(var(--border)); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -113,8 +135,10 @@
     font-family: var(--font-family-base);
     font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss02", "cv01", "cv02", "cv03", "cv04", "cv11";
   }
-  h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-heading);
-  color: hsl(var(--foreground));}
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: hsl(var(--foreground));
+  }
   h1 { font-size: calc(2.25rem * var(--text-scale, 1)); }
   h2 { font-size: calc(1.875rem * var(--text-scale, 1)); }
   h3 { font-size: calc(1.5rem * var(--text-scale, 1)); }
@@ -136,24 +160,26 @@
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
   .center {  display: flex; align-items: center; justify-content: center; }
-  .text-gradient-primary { background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  .text-gradient-primary {
+    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    /* text-fill-color: transparent; */
+   }
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--muted-foreground) / 0.5);
-    border-radius: var(--radius); border: 2px solid transparent; background-clip: padding-box;
+    background-color: hsla(var(--muted-foreground), 0.5);
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    background-clip: padding-box;
   }
-  ::-webkit-scrollbar-thumb:hover { background-color: hsl(var(--muted-foreground) / 0.7); }
+  ::-webkit-scrollbar-thumb:hover {
+     background-color: hsla(var(--muted-foreground), 0.7);
+  }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .glass-effect { backdrop-filter: blur(8px) saturate(180%);
-     background-color: hsl(var(--card) / 0.5);
-     border: 1px solid hsl(var(--border) / 0.2);
-     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
 }
 
 @layer components {
@@ -162,12 +188,12 @@
    * Common Component Base Styles & Animations
    * ========================================================================
    */
-  .card-hover-basic { transition: transform var(--transition-duration-base) ease-in-out, box-shadow var(--transition-duration-base) ease-in-out;
-     box-shadow: 0 1px 3px 0 hsl(var(--foreground) / 0.1), 0 1px 2px -1px hsl(var(--foreground) / 0.1); }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+
   @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
   .animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
 
