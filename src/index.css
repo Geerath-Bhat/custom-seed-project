@@ -1,8 +1,8 @@
 /**
  * Generalized Tokens & Base Styles for React Tailwind Projects
  * -----------------------------------------------------------
- * Generated based on application description: Trading Dashboard.
  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,58 +16,52 @@
    */
   :root {
     /* Colors (Light Mode - HSL with PERCENT) */
-    --background: 210 40% 98%;
-    --foreground: 220 10% 10%;
+    --background: 210 20% 98%;
+    --foreground: 210 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 10% 10%;
+    --card-foreground: 210 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 10%;
+    --popover-foreground: 210 10% 15%;
 
-    --primary: 220 75% 55%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 180 65% 45%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 215 25% 65%;
-    --secondary-foreground: 220 10% 25%;
+    --secondary-foreground: 210 10% 15%;
 
-    --muted: 210 40% 95%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 210 30% 94%;
+    --muted-foreground: 210 10% 45%;
+    /* Define HSL components for scrollbar usage */
+    --muted-foreground-h: 210;
+    --muted-foreground-s: 10%;
+    --muted-foreground-l: 45%;
 
-    --accent: 220 85% 65%;
-    --accent-foreground: 220 10% 10%;
+    --accent: 15 90% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --success: 130 65% 40%;
-    --success-foreground: 0 0% 98%;
+    --success: 130 60% 50%;
+    --success-foreground: 0 0% 100%;
 
     --warning: 40 90% 55%;
-    --warning-foreground: 30 50% 15%;
+    --warning-foreground: 210 10% 15%;
 
-    --border: 210 25% 88%;
-    --input: 210 25% 88%;
-    --ring: 220 75% 55%;
-
-    /* Sidebar Colors */
-    --sidebar-background: 210 35% 96%;
-    --sidebar-foreground: 220 10% 10%;
-    --sidebar-primary: 220 75% 55%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 220 85% 65%;
-    --sidebar-accent-foreground: 220 10% 10%;
-    --sidebar-border: 210 25% 85%;
-    --sidebar-ring: 220 75% 55%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 180 65% 75%;
 
     /* Layout & Typography */
-    --radius: 0.5rem;
-    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --radius: 0.75rem;
+    --font-family-base: "Poppins", "Inter", sans-serif;
+    --font-family-heading: "Poppins", "Inter", sans-serif;
+    --font-family-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
     --text-scale: 1;
     --spacing-scale: 1;
-    --transition-duration-base: 150ms;
+    --transition-duration-base: 200ms;
   }
 
   /**
@@ -76,57 +70,48 @@
    * ========================================================================
    */
   .dark {
-    --background: 220 15% 10%;
-    --foreground: 210 40% 96%;
+    --background: 210 15% 10%;
+    --foreground: 210 20% 95%;
 
-    --card: 220 15% 14%;
-    --card-foreground: 210 40% 96%;
+    --card: 210 15% 15%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 220 15% 12%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 210 15% 15%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 220 75% 65%;
-    --primary-foreground: 220 15% 10%;
+    --primary: 180 60% 55%;
+    --primary-foreground: 210 10% 15%;
 
-    --secondary: 215 20% 30%;
-    --secondary-foreground: 210 40% 90%;
+    --secondary: 215 20% 35%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 215 15% 25%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 210 15% 25%;
+    --muted-foreground: 210 15% 65%;
+    /* Define HSL components for scrollbar usage */
+    --muted-foreground-h: 210;
+    --muted-foreground-s: 15%;
+    --muted-foreground-l: 65%;
 
-    --accent: 220 85% 70%;
-    --accent-foreground: 220 15% 10%;
+    --accent: 15 85% 65%;
+    --accent-foreground: 210 10% 15%;
 
-    --destructive: 0 75% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --success: 130 60% 50%;
-    --success-foreground: 130 100% 10%;
+    --success: 130 55% 55%;
+    --success-foreground: 210 10% 15%;
 
     --warning: 40 85% 60%;
-    --warning-foreground: 40 100% 10%;
+    --warning-foreground: 210 10% 15%;
 
-    --border: 215 15% 25%;
-    --input: 215 15% 25%;
-    --ring: 220 85% 70%;
-
-    --sidebar-background: 220 15% 8%;
-    --sidebar-foreground: 210 40% 96%;
-    --sidebar-primary: 220 75% 65%;
-    --sidebar-primary-foreground: 220 15% 10%;
-    --sidebar-accent: 220 85% 70%;
-    --sidebar-accent-foreground: 220 15% 10%;
-    --sidebar-border: 215 15% 20%;
-    --sidebar-ring: 220 85% 70%;
+    --border: 210 15% 30%;
+    --input: 210 15% 30%;
+    --ring: 180 60% 65%;
   }
 
   /* Base Element Styling */
-  * {
-    border-color: hsl(var(--border));
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+  * { border-color: hsl(var(--border)); }
+  html { scroll-behavior: smooth; }
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -135,10 +120,8 @@
     font-family: var(--font-family-base);
     font-feature-settings: "rlig" 1, "calt" 1, "ss01", "ss02", "cv01", "cv02", "cv03", "cv04", "cv11";
   }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-heading);
-    color: hsl(var(--foreground));
-  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-heading);
+  color: hsl(var(--foreground));}
   h1 { font-size: calc(2.25rem * var(--text-scale, 1)); }
   h2 { font-size: calc(1.875rem * var(--text-scale, 1)); }
   h3 { font-size: calc(1.5rem * var(--text-scale, 1)); }
@@ -160,26 +143,24 @@
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
   .center {  display: flex; align-items: center; justify-content: center; }
-  .text-gradient-primary {
-    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  .text-gradient-primary { background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* text-fill-color: transparent; */
-   }
+    -webkit-text-fill-color: transparent; }
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background-color: hsla(var(--muted-foreground), 0.5);
-    border-radius: var(--radius);
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    background-color: hsla(var(--muted-foreground-h), var(--muted-foreground-s), var(--muted-foreground-l), 0.5);
+    border-radius: var(--radius); border: 2px solid transparent; background-clip: padding-box;
   }
-  ::-webkit-scrollbar-thumb:hover {
-     background-color: hsla(var(--muted-foreground), 0.7);
-  }
+  ::-webkit-scrollbar-thumb:hover { background-color: hsla(var(--muted-foreground-h), var(--muted-foreground-s), var(--muted-foreground-l), 0.7); }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .glass-effect { backdrop-filter: blur(8px) saturate(180%);
+     background-color: hsla(var(--background) / 0.7);
+     border: 1px solid hsla(var(--border) / 0.3);
+     box-shadow: 0 4px 6px hsla(var(--foreground) / 0.1); }
 }
 
 @layer components {
@@ -188,12 +169,14 @@
    * Common Component Base Styles & Animations
    * ========================================================================
    */
+  .card-hover-basic {
+     transition: transform var(--transition-duration-base, 200ms) ease-in-out, box-shadow var(--transition-duration-base, 200ms) ease-in-out;
+     box-shadow: 0 1px 3px 0 hsla(var(--foreground) / 0.1), 0 1px 2px 0 hsla(var(--foreground) / 0.06);
+  }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-
   @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
-
   @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
   .animate-scale-in { animation: scaleIn 0.3s ease-out forwards; }
 

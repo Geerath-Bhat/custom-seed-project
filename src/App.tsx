@@ -6,11 +6,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import LoginPage from "./pages/LoginPage";
-import MainTradingDashboardPage from "./pages/MainTradingDashboardPage";
-import MarketOverviewPage from "./pages/MarketOverviewPage";
-import StockDetailPage from "./pages/StockDetailPage";
-import UserProfilePage from "./pages/UserProfilePage";
+import DestinationDetailItineraryPage from "./pages/DestinationDetailItineraryPage";
+import GroupBookingPage from "./pages/GroupBookingPage";
+import HomePage from "./pages/HomePage";
+import HotelDetailsBookingPage from "./pages/HotelDetailsBookingPage";
+import UserDashboardPage from "./pages/UserDashboardPage";
 // import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,11 +25,11 @@ const App = () => (
         <Routes>
 
 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<MainTradingDashboardPage />} />
-          <Route path="/stock/:ticker" element={<StockDetailPage />} />
-          <Route path="/profile" element={<UserProfilePage />} />
-          <Route path="/market-overview" element={<MarketOverviewPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/destination/:id" element={<DestinationDetailItineraryPage />} />
+          <Route path="/hotel/:id" element={<HotelDetailsBookingPage />} />
+          <Route path="/group" element={<GroupBookingPage />} />
+          <Route path="/dashboard" element={<UserDashboardPage />} />
           {/* catch-all */}
           {/* <Route path="*" element={<NotFound />} /> */}
 

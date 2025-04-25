@@ -25,17 +25,17 @@ export default {
         // Use 'extend' to add customizations without overwriting Tailwind defaults
         extend: {
             // --- START: Project-Specific Font Families ---
-            // Define custom font families based on CSS variables.
+            // Define custom font families. Ensure the fonts are imported/linked in your project.
             fontFamily: {
-                sans: ['var(--font-family-base)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
-                heading: ['var(--font-family-heading)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
-                mono: ['var(--font-family-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                sans: ['Poppins', 'Inter', 'sans-serif'], // Default sans-serif stack from --font-family-base
+                heading: ['Poppins', 'Inter', 'sans-serif'], // Heading font stack from --font-family-heading
+                mono: ['ui-monospace', 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', 'monospace'], // Mono font stack from --font-family-mono
             },
             // --- END: Project-Specific Font Families ---
 
             // --- Color Palette ---
             colors: {
-                // Base colors (controlled by CSS variables for theming)
+                // Base colors (typically controlled by CSS variables for theming)
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))', // Used for focus rings, etc.
@@ -69,28 +69,28 @@ export default {
                     DEFAULT: 'hsl(var(--card))',
                     foreground: 'hsl(var(--card-foreground))'
                 },
-                // Sidebar specific colors (enabled as CSS variables are present)
-                sidebar: {
-                 DEFAULT: 'hsl(var(--sidebar-background))',
-                 foreground: 'hsl(var(--sidebar-foreground))',
-                 primary: 'hsl(var(--sidebar-primary))',
-                 'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-                 accent: 'hsl(var(--sidebar-accent))',
-                 'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-                 border: 'hsl(var(--sidebar-border))',
-                 ring: 'hsl(var(--sidebar-ring))'
-                },
+                // Sidebar specific colors (if using a distinct sidebar theme)
+                // sidebar: {
+                //  DEFAULT: 'hsl(var(--sidebar-background))',
+                //  foreground: 'hsl(var(--sidebar-foreground))',
+                //  primary: 'hsl(var(--sidebar-primary))',
+                //  'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+                //  accent: 'hsl(var(--sidebar-accent))',
+                //  'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+                //  border: 'hsl(var(--sidebar-border))',
+                //  ring: 'hsl(var(--sidebar-ring))'
+                // },
 
                 // --- START: Project-Specific Colors ---
                 // Added based on CSS variables found in index.css
                 success: {
-                    DEFAULT: 'hsl(var(--success))',
-                    foreground: 'hsl(var(--success-foreground))'
+                  DEFAULT: 'hsl(var(--success))',
+                  foreground: 'hsl(var(--success-foreground))'
                 },
                 warning: {
-                    DEFAULT: 'hsl(var(--warning))',
-                    foreground: 'hsl(var(--warning-foreground))'
-                }
+                  DEFAULT: 'hsl(var(--warning))',
+                  foreground: 'hsl(var(--warning-foreground))'
+                },
                 // --- END: Project-Specific Colors ---
             },
 
@@ -116,10 +116,22 @@ export default {
 
                 // --- START: Project-Specific Keyframes ---
                 // Added based on @keyframes found in index.css
-                fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
-                slideUp: { from: { opacity: '0', transform: 'translateY(20px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
-                scaleIn: { from: { opacity: '0', transform: 'scale(0.95)' }, to: { opacity: '1', transform: 'scale(1)' } },
-                pulse: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '.5' } },
+                fadeIn: {
+                    from: { opacity: '0' },
+                    to: { opacity: '1' }
+                },
+                slideUp: {
+                    from: { opacity: '0', transform: 'translateY(20px)' },
+                    to: { opacity: '1', transform: 'translateY(0)' }
+                },
+                scaleIn: {
+                    from: { opacity: '0', transform: 'scale(0.95)' },
+                    to: { opacity: '1', transform: 'scale(1)' }
+                },
+                pulse: {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '.5' }
+                },
                 // --- END: Project-Specific Keyframes ---
             },
 
@@ -130,25 +142,23 @@ export default {
                 'accordion-up': 'accordion-up 0.2s ease-out',
 
                 // --- START: Project-Specific Animations ---
-                // Added based on animation classes found in index.css
+                // Added based on animation utilities found in index.css
                 'fade-in': 'fadeIn 0.5s ease-out forwards',
                 'slide-up': 'slideUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
                 'scale-in': 'scaleIn 0.3s ease-out forwards',
                 'pulse-gentle': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                // Note: Stagger uses 'fade-in' directly in CSS, no separate animation utility needed here.
                 // --- END: Project-Specific Animations ---
             },
 
             // --- START: Project-Specific Box Shadows ---
             boxShadow: {
-                // Added based on user prompt mention of 'distinct module cards'
-                'card': '0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1)',
+                // Add custom shadows if needed based on project design
             },
             // --- END: Project-Specific Box Shadows ---
 
             // --- START: Project-Specific Background Images ---
             backgroundImage: {
-                // Add custom background images if needed
+                // Add custom background images or gradients if needed
             },
             // --- END: Project-Specific Background Images ---
         }
@@ -157,8 +167,8 @@ export default {
     // --- Tailwind CSS Plugins ---
     plugins: [
         require("tailwindcss-animate"), // Essential for the keyframes/animations defined above
-        require('@tailwindcss/forms'), // Needed for form styling mentioned in prompt
-        require('@tailwindcss/typography'), // Useful for potential content sections
-        require('tailwind-scrollbar'), // Added because scrollbar styles were found in index.css
+        require('@tailwindcss/forms'),     // Required for form styling based on project description
+        require('@tailwindcss/typography'), // Recommended for content-rich pages like destination details
+        // DO NOT ADD ANY OTHER PLUGINS.
     ],
 } satisfies Config;
